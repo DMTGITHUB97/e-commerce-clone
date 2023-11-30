@@ -1,0 +1,69 @@
+.active-nav:hover{
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color)!important;
+}
+
+#dropdown:hover{
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+input{    
+    background: url("http://kodyrabatowe.wp.pl/img/ico/search_gr.png") top left     no-repeat;
+    height:30px;
+    padding-left:25px;   
+    }
+
+#dropdown .dropdown-item:hover, #profileDropdown#manageAccountOptions:hover{
+    font-weight: 600;
+}
+#dropdown {
+    height: auto;
+    width: calc(100vw - 200px);
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    overflow-x: scroll;
+}
+
+#dropdown .dropdown-header{
+    font-weight: 600;
+    font-size: 14px;
+    color:#ee5f73;
+}
+
+#dropdown .dropdown-item{
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20.5px !important;
+}
+
+#navbarSupportedContent li>a{
+    border-bottom-width: 2px !important;
+    border-bottom-color: #ee5f73 !important;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+#profileDropdown{
+    width: fit-content;
+}
+
+#signinSignupBtn{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0px 10px 0 0;
+    border: 1px solid #eaeaec;
+    border-radius: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #ff3f6c;
+    font-weight: 700;
+}
+
+.notification-bell-icon{
+    border-radius: 50%;
+    background-color: cornflowerblue;
+    color: #eaeaec;
+    width: 50px;
+    height: 50px;
+}
