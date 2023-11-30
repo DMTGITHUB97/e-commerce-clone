@@ -1103,7 +1103,7 @@ function prepareProfileDropdown() {
     {
         var dropdownDiv = $('#profileDropdown');
         var mainDiv = $('<div>', {
-            class: 'col-12 mx-3',
+            class: 'col-12 mx-3 my-2',
             style: 'width: 300px'
         });
         dropdownDiv.append(mainDiv);
