@@ -382,3 +382,76 @@ const beauty = {
         'Forest Essentials'
     ]
 }
+
+var cardData = [
+    {
+        id: 1,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 2,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 3,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 4,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 5,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 6,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 7,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 8,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 9,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 10,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 12,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 13,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 14,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    },
+    {
+        id: 15,
+        image: "/assets/image/avatar.png",
+        name: "avatar"
+    }
+];

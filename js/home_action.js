@@ -3,6 +3,7 @@
  */
 "use strict";
 $(document).ready(function () {
+    prepareShopByCategoryCard(cardData);
     $('body').on('mouseleave', '#navbarSupportedContent', function (event)
     {
         $("#dropdown").hide();
@@ -833,6 +834,38 @@ function prepareProfileDropdown() {
         manageAccountOptions.append(option2);
     }
     catch (e)
+    {
+        console.log(e);
+    }
+}
+
+function prepareShopByCategoryCard(cardData)
+{
+    try
+    {
+        var cardDiv = $('#shopByCategoryCard');
+        for(var i = 0; i < cardData.length; i++)
+        {
+            var card = cardData[i];
+            var mainDiv = $('<div>', {
+                class: 'd-flex categoryCard border justify-content-center',
+                id: card.id
+            }).append($('<img>', {
+                src: card.image,
+                alt: card.name,
+                class: 'img-fluid position-absolute justify-content-center text-center',
+            })).append($('<div>', {
+                class: "bg-danger z-1000 container position-relative text-center",
+                id: card.id,
+                style: 'height: 5rem; width: 10rem; bottom: -165px;'
+            }).append($('<span>', {
+                class: 'text-center',
+                text: "Footwear"
+            })));
+            cardDiv.append(mainDiv);
+        }
+    }
+    catch(e)
     {
         console.log(e);
     }
