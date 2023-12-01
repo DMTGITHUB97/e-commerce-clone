@@ -141,6 +141,7 @@ p {
 
 #contactAreaDiv ul>li{
     line-height: 25px;
+    cursor: pointer; 
 }
 
 .categoryCard{
