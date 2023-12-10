@@ -22,7 +22,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-light shadow p-0">
     <div class="container-fluid">
-      <a href="#">
+      <a href="#" onclick="showTab('HOME_TAB', '');">
         <img src="assets\image\myntra-1200x800_1611941678106_1611941684903.avif" alt="logo" class="px-2 ht-50">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -110,6 +110,7 @@
       </div>
     </div>
   </nav>
+  <div role="tabpanel" class="tab-pane d-none" id="homeTab">
   <div class="position-fixed notification-bell-icon text-center b-50 r-50"><i class="fa-regular fa-bell py-2 m-1"
       style="font-size: 25px;"></i></div>
 
@@ -626,6 +627,10 @@
         your friends, family and loved-ones and avail our gift services for special occasions.</p>
     </div>
   </footer>
+</div>
+<div role="tab-pane" class="tab-pane d-none" id="categoryTab">
+  <div id="categoryTabContent"></div>
+</div>
 </body>
 
 </html>

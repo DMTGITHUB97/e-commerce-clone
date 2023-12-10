@@ -4,6 +4,7 @@
 "use strict";
 $(document).ready(function () {
     prepareShopByCategoryCard(cardData);
+    showTab('HOME_TAB', '');
     $('body').on('mouseleave', '#navbarSupportedContent', function (event)
     {
         $("#dropdown").hide();
@@ -31,7 +32,41 @@ $(document).ready(function () {
     {
         
     });
+    $('body').on('click', '#menDropdownInnerDiv li, #womenDropdownInnerDiv li, #kidDropdownInnerDiv li, #homeAndLivingDropdownInnerDiv li, #beautyDropdownInnerDiv li', function(e)
+    {
+        var target = e.target || e.srcElement;
+        var targetId = target.id;
+        var text = $(this).text();
+        console.log(text);
+        showTab(`${text}`, text);
+    });
 });
+
+function showTab(activeTab, object)
+{
+    try
+    {
+        if (activeTab == 'HOME_TAB')
+        {
+           $('#homeTab').removeClass('d-none');
+           $('#homeTab').addClass('active');
+           $('#categoryTab').addClass('d-none');
+           $('#categoryTab').removeClass('active');
+        }
+        if (activeTab != 'HOME_TAB')
+        {
+            $('#homeTab').addClass('d-none');
+            $('#homeTab').removeClass('active');
+            $('#categoryTab').removeClass('d-none');
+            $('#categoryTab').addClass('active');
+            prepareContentTab(activeTab, object);
+        }
+    }
+    catch (e)
+    {
+        console.log(e);
+    }
+}
 
 function prepareCategoryDropdown(hoverText)
 {
@@ -103,7 +138,8 @@ function prepareMenDropdown(category)
         var dropdownDiv = $('#dropdown');
 
         var mainDiv = $('<div>', {
-            class: 'col-12 d-flex'
+            class: 'col-12 d-flex',
+            id: 'menDropdownInnerDiv'
         });
         dropdownDiv.append(mainDiv);
 
@@ -113,7 +149,9 @@ function prepareMenDropdown(category)
         mainDiv.append(topWearMainDiv);
         for (var i = 0; i < category.topWear.length; i++)
         {
-            topWearMainDiv.append('<li class="dropdown-item px-0">' + category.topWear[i] + '</li>');
+            var randomNo = getRandomNumber();
+            var id = category.topWear[i].toLowerCase().trim();
+            topWearMainDiv.append('<li class="dropdown-item px-0" id="'+ id + randomNo +'">' + category.topWear[i] + '</li>');
         }
         var divider = $('<div>', {
             class: 'dropdown-divider'
@@ -367,7 +405,7 @@ function prepareKidsDropdown(category)
 
         var mainDiv = $('<div>', {
             class: 'col-12 d-flex',
-            id: 'womenDropdownInnerDiv'
+            id: 'kidDropdownInnerDiv'
         });
         dropdownDiv.append(mainDiv);
 
@@ -461,7 +499,7 @@ function prepareHomeAndLivingDropdown(category)
 
         var mainDiv = $('<div>', {
             class: 'col-12 d-flex',
-            id: 'womenDropdownInnerDiv'
+            id: 'homeAndLivingDropdownInnerDiv'
         });
         dropdownDiv.append(mainDiv);
 
@@ -569,7 +607,7 @@ function prepareBeautyDropdown(category)
 
         var mainDiv = $('<div>', {
             class: 'col-12 d-flex',
-            id: 'womenDropdownInnerDiv'
+            id: 'beautyDropdownInnerDiv'
         });
         dropdownDiv.append(mainDiv);
 
@@ -677,7 +715,8 @@ function prepareStudioDropdown()
         var dropdownDiv = $('#dropdown');
 
         var mainDiv = $('<div>', {
-            class: 'col-12 d-block'
+            class: 'col-12 d-block',
+            id: 'studioDropdownInnerDiv'
         });
         dropdownDiv.append(mainDiv);
 
@@ -723,7 +762,7 @@ function prepareProfileDropdown() {
         dropdownDiv.empty();
         var mainDiv = $('<div>', {
             class: 'col-12 mx-3 my-2',
-            style: 'width: 300px'
+            style: 'width: 300px',
         });
         dropdownDiv.append(mainDiv);
 
@@ -871,19 +910,98 @@ function prepareShopByCategoryCard(cardData)
     }
 }
 
-$('body').on('click','#dropdown a', function() {
-    var clickedItemText = $(this).text();
-    switch(clickedItemText) {
-        case 'T-Shirts':
-            window.location.href = 'www.google.com';
-            break;
-        case 'Topwear':
-            window.location.href = 'www.google.com';
-            break;
-        case 'Bottomwear':
-            window.location.href = 'www.google.com';
+$('#dropdown').on('click', '#dropdown, #beautyDropdownInnerDiv li, #homeAndLivingDropdownInnerDiv li, #kidDropdownInnerDiv li, #womenDropdownInnerDiv li, #menDropdownInnerDiv li', function(event){
+    var target = event.target || event.srcElement;
+    var targetId = target.id;
+
+    var selectedText = $(this).text();
+    switch(selectedText)
+    {
+        case T-shirt:
             break;
         default:
-            break;
+            console.log(event);
     }
 });
+
+function getRandomNumber()
+{
+    var today = new Date();
+    var day = Date().split(" ")[2]
+    var hours = today.getHours();
+    var minutes = today.getMinutes();
+    var seconds = today.getSeconds();
+    var milliSeconds = today.getMilliseconds();
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    if (milliSeconds < 10)
+    {
+        milliSeconds = '00' + milliSeconds;
+    }
+    else if (milliSeconds < 100)
+    {
+        milliSeconds = '0' + milliSeconds;
+    }
+
+    var randomNumber = day + hours + minutes + seconds + milliSeconds;
+    return randomNumber;
+}
+
+function prepareContentTab(data, tabName)
+{
+    try
+    {
+        var rootElement = $('#categoryTabContent');
+        rootElement.empty();
+        var tabHeader = $('<h4/>', {
+            text: tabName,
+            class: 'p-5'
+        });
+        rootElement.append(tabHeader);
+
+        var mainDiv = $('<div/>', {
+            class: 'd-flex justify-content-around',
+            id: '',
+            style: 'flex-wrap: wrap;'
+        });
+
+        for(let i=0; i<=10; i++)
+        {
+            var cardDiv = $('<div/>', {
+                class: 'd-flex justify-content-around py-2',
+                id: ''
+            })
+            var card = $('<div/>', {
+                class: 'border position-relative ht-250 wt-200 m-4'
+            }).append($('<img/>', {
+                class: 'ht-250 wt-200 p-1',
+                src: '/assets/image/avatar.png'
+            })).append($('<div/>', {
+                class: 'b-0 border container ht-30 m-2 d-flex justify-content-around position-absolute bg-light rounded-2 w-50'
+            }).append($('<span/>', {
+                class: '',
+                text: '4.5'
+            })).append($('<span/>', {
+                class: '',
+                text: '|'
+            })).append($('<span/>', {
+                class: '',
+                text: '2'
+            }))).append($('<div/>', {
+                class: 'd-grid text-center my-1'
+            }).append($('<span/>', {
+                text: 'title',
+            })).append($('<span/>', {
+                text: 'description'
+            })));
+            cardDiv.append(card);
+            mainDiv.append(cardDiv);
+        }
+        rootElement.append(mainDiv);
+    }
+    catch(e)
+    {
+        console.log(e);
+    }
+}

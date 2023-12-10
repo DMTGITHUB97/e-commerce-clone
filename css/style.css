@@ -155,3 +155,7 @@ p {
     height: 16rem;
     width: 11rem;
 }
+
+#beautyDropdownInnerDiv li, #homeAndLivingDropdownInnerDiv li, #kidDropdownInnerDiv li, #womenDropdownInnerDiv li, #menDropdownInnerDiv li{
+    cursor: pointer;
+}
